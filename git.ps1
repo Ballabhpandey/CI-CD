@@ -35,4 +35,12 @@ $commitHashes = $commitHashes | Sort-Object -Descending
 # Get the latest commit ID from the sorted list
 $latestCommitId = $commitHashes[0]
 write-host "latest $latestCommitId "
+# Iterate over the hashtable to find the file corresponding to the latest commit ID
+foreach ($file in $changedFilesWithCommits.Keys) {
+    if ($changedFilesWithCommits[$file] -contains $latestCommitId) {
+        Write-Host "Latest commit ID '$latestCommitId' is associated with file '$file'"
+        break  # Exit the loop once the file is found
+    }
+}
+
 
