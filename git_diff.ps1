@@ -25,7 +25,7 @@ $json = Get-Content $jsonFilePath | ConvertFrom-Json
 foreach ($file in $changedFiles) {
     if ($file -match "\.jrxml") {
         # There are changes in jrxml files
-
+write-host "file is : $file"
         # Extract application name from jrxml file name
         $applicationName = [System.IO.Path]::GetFileNameWithoutExtension($file)
 
