@@ -30,3 +30,8 @@ Write-Host "Changed files and their corresponding commit IDs:"
 foreach ($file in $changedFilesWithCommits.Keys) {
     Write-Host "$file : $($changedFilesWithCommits[$file] -join ', ')"
 }
+# Sort commit hashes in descending order (latest commit first)
+$commitHashes = $commitHashes | Sort-Object -Descending
+# Get the latest commit ID from the sorted list
+$latestCommitId = $commitHashes[0]
+
