@@ -3,7 +3,7 @@ $repoUrl = "https://github.com/Ballabhpandey/CI-CD.git"
 
 # Clone the Git repository with GitHub PAT
 $githubPat = $env:GitHubPat
-git clone -c http.extraheader="AUTHORIZATION: basic $(echo $githubPat)" $repoUrl
+git clone https://github.com/Ballabhpandey/CI-CD.git
 cd CI-CD
 # Get the commit hash associated with the version being built
 $commitHash = $env:BUILD_SOURCEVERSION
