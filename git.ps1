@@ -32,15 +32,26 @@ foreach ($file in $changedFilesWithCommits.Keys) {
 }
 # Sort commit hashes in descending order (latest commit first)
 $commitHashes = $commitHashes | Sort-Object -Descending
+
+# Initialize an array to store all the latest commit IDs
+$latestCommits = @()
+
 # Get the latest commit ID from the sorted list
 $latestCommitId = $commitHashes[0]
-write-host "latest $latestCommitId "
-# Iterate over the hashtable to find the file corresponding to the latest commit ID
-foreach ($file in $changedFilesWithCommits.Keys) {
-    if ($changedFilesWithCommits[$file] -contains $latestCommitId) {
-        Write-Host "Latest commit ID '$latestCommitId' is associated with file '$file'"
-        break  # Exit the loop once the file is found
+
+# Collect all the latest commit IDs
+foreach ($commit in $commitHashes) {
+    if ($commit -eq $latestCommitId) {
+        $latestCommits += $commit
+    } else {
+        break  # Exit the loop if the commit is not the latest
     }
+}
+
+# Output the latest commit IDs
+Write-Host "Latest commits:"
+foreach ($commit in $latestCommits) {
+    Write-Host $commit
 }
 
 
