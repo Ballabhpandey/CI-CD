@@ -9,27 +9,24 @@ cd CI-CD
 # Get the list of commit hashes
 $commitHashes = git log --format="%H"
 
-# Initialize a hashtable to store changed jrxml files and their corresponding commit IDs
-$jrxmlChanges = @{}
+# Initialize a hashtable to store the latest commit ID for each jrxml file
+$latestCommits = @{}
 
 # Check for changes in jrxml files across all commits
 foreach ($commit in $commitHashes) {
     # Get the list of changed jrxml files for the current commit
     $changedJrxmlFiles = git diff-tree --no-commit-id --name-only -r $commit -- '*.jrxml'
 
-    # If there are changes in jrxml files, store them in the hashtable along with their commit IDs
+    # If there are changes in jrxml files, update the latest commit ID for each file
     if ($changedJrxmlFiles) {
         foreach ($jrxmlFile in $changedJrxmlFiles) {
-            if (-not $jrxmlChanges.ContainsKey($jrxmlFile)) {
-                $jrxmlChanges[$jrxmlFile] = @()
-            }
-            $jrxmlChanges[$jrxmlFile] += $commit
+            $latestCommits[$jrxmlFile] = $commit
         }
     }
 }
 
-# Output the changed jrxml files and their corresponding commit IDs
-foreach ($file in $jrxmlChanges.Keys) {
-    $commitIds = $jrxmlChanges[$file] -join ', '
-    Write-Host "File: $file, Commit IDs: $commitIds"
+# Output the latest commit ID for each changed jrxml file
+foreach ($file in $latestCommits.Keys) {
+    $commitId = $latestCommits[$file]
+    Write-Host "File: $file, Latest Commit ID: $commitId"
 }
