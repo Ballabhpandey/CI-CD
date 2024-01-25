@@ -6,15 +6,20 @@ $githubPat = $env:GitHubPat
 git clone https://github.com/Ballabhpandey/CI-CD.git
 cd CI-CD
 # Get the list of commit hashes
-$commitHashes = git log --format="%H" 
+#$commitHashes = git log --format="%H" 
+# Get the latest commit hash
+$latestCommitHash = git rev-list -n 1 HEAD
+
+
+
 
 
 # Initialize an empty array to store changed files
 $allChangedFiles = @()
 
 foreach ($commit in $commitHashes) {
-    # Get the list of changed files for the current commit
-    $changedFiles = git diff-tree --no-commit-id --name-only -r HEAD^
+   # Get the list of changed files introduced by the latest commit
+$changedFiles = git diff-tree --no-commit-id --name-only -r $latestCommitHash
 
     # Append the changed files to the array
     $allChangedFiles += $changedFiles
