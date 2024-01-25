@@ -34,4 +34,5 @@ foreach ($file in $changedFilesWithCommits.Keys) {
 $commitHashes = $commitHashes | Sort-Object -Descending
 # Get the latest commit ID from the sorted list
 $latestCommitId = $commitHashes[0]
+write-host "latest $latestCommitId "
 
