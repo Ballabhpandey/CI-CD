@@ -7,6 +7,7 @@ git clone https://github.com/Ballabhpandey/CI-CD.git
 cd CI-CD
 # Get the list of commit hashes
 $commitHashes = git log --format="%H" 
+$commitHashes = git rev-parse HEAD
 
 # Initialize an empty array to store changed files
 $allChangedFiles = @()
