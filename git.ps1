@@ -9,25 +9,24 @@ cd CI-CD
 # Get the list of commit hashes
 $commitHashes = git log --format="%H"
 
-# Initialize a hashtable to store changed files and their corresponding commit IDs
-$changedFilesWithCommits = @{}
+# Initialize a flag to track changes in jrxml files
+$jrxmlChangesFound = $false
 
+# Check for changes in jrxml files across all commits
 foreach ($commit in $commitHashes) {
-    # Get the list of changed files for the current commit
-    $changedFiles = git diff-tree --no-commit-id --name-only -r $commit
+    # Get the list of changed jrxml files for the current commit
+    $changedJrxmlFiles = git diff-tree --no-commit-id --name-only -r $commit -- '*.jrxml'
 
-    # Append the commit ID to the array corresponding to each file
-    foreach ($file in $changedFiles) {
-        if (-not $changedFilesWithCommits.ContainsKey($file)) {
-            $changedFilesWithCommits[$file] = @()
-        }
-        $changedFilesWithCommits[$file] += $commit
+    # If there are changes in jrxml files, set the flag to true and exit the loop
+    if ($changedJrxmlFiles) {
+        $jrxmlChangesFound = $true
+        break
     }
 }
 
-# Output the list of changed files and their corresponding commit IDs
-Write-Host "Changed files and their corresponding commit IDs:"
-foreach ($file in $changedFilesWithCommits.Keys) {
-    Write-Host "File: $file"
-    Write-Host "Commit IDs: $($changedFilesWithCommits[$file] -join ', ')"
+# Output the result
+if ($jrxmlChangesFound) {
+    Write-Host "Changes were found in jrxml files."
+} else {
+    Write-Host "No changes were found in jrxml files."
 }
