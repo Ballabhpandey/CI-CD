@@ -6,11 +6,10 @@ $githubPat = $env:GitHubPat
 git clone https://github.com/Ballabhpandey/CI-CD.git
 cd CI-CD
 # Get the commit hash associated with the version being built
-$commitHash = git rev-parse HEAD
-#$commitHash = $env:BUILD_SOURCEVERSION
-$commitMessage = $env:Build.SourceVersionMessage
-write-host "commit message: $commitMessage"
-write-host "commithash: $commitHash"
+#$commitHash = git rev-parse HEAD
+$commitHash = $env:BUILD_SOURCEVERSION
+$commitHashes = git log --format="%H" $commitHash
+write-host "commithash: $commitHashes"
 
 # Get the list of changed files since the specified commit
 $changedFiles = git diff-tree --no-commit-id --name-only -r $commitHash
