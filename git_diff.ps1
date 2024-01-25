@@ -19,6 +19,7 @@ $variableName = "REPORT_VERSION"
 
 # Load version information from application.json
 $jsonFilePath = "$Env:BUILD_SOURCESDIRECTORY\application1.json"
+write-host "$jsonFilePath"
 $json = Get-Content $jsonFilePath | ConvertFrom-Json
 
 foreach ($file in $changedFiles) {
