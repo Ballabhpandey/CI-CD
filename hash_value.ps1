@@ -45,7 +45,7 @@ git add CardPayMoneyInMetering_hash.txt CardPayMoneyInMeteringe_hash.txt CardPay
 git commit -m "sd"
  git status
 
- git push origin master
+ git push origin1 master
 
 
 
