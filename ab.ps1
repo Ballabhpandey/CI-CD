@@ -1,6 +1,6 @@
 # Create a new file
-New-Item -Path "$env:Build.SourcesDirectory\file.txt" -ItemType "file" -Force
-
+$a = New-Item -Path "$env:Build.SourcesDirectory\file.txt" -ItemType "file" -Force
+write-host "$a"
 # Set content to the file
 Set-Content -Path "$env:Build.SourcesDirectory\file.txt" -Value "Your content here"
 
