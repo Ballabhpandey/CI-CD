@@ -8,3 +8,6 @@ Set-Content -Path "$env:Build.SourcesDirectory\file.txt" -Value "Your content he
 git status 
 git fetch origin master
 git pull origin master
+git add file.txt
+git commit -m "dsa"
+git push origin master
