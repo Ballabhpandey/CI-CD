@@ -30,7 +30,7 @@ git init
   git config --global user.name "Your Name"
 
 
-$null = git remote add origin1 https://github.com/Ballabhpandey/CI-CD.git
+$null = git remote add origin1 https://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@github.com/Ballabhpandey/CI-CD.git
 # Push changes to remote repository
 $null = git remote -v 
 
