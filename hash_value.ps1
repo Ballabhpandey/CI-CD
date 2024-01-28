@@ -29,6 +29,7 @@ git init
   git config --global user.email "you@example.com"
   git config --global user.name "Your Name"
 
+git config --list
 
 $null = git remote add origin1 https://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@github.com/Ballabhpandey/CI-CD.git
 # Push changes to remote repository
