@@ -35,6 +35,8 @@ $null = git remote -v
 $null = git fetch origin1 master
 $null = git pull origin1 master
 
+git status
+
 
 
 
