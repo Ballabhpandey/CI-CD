@@ -26,6 +26,9 @@ cd D:\a\1\s\CombinedFiles
 git init 
 
 
+  git config --global user.email "you@example.com"
+  git config --global user.name "Your Name"
+
 
 $null = git remote add origin1 https://github.com/Ballabhpandey/CI-CD.git
 # Push changes to remote repository
