@@ -22,7 +22,7 @@ foreach ($file in $jrxmlFiles) {
     Set-Content -Path $hashFileName -Value $hash.Hash
     Write-Output "File: $($file.Name), Hash: $($hash.Hash), Hash File: $($hashFileName)"
 }
-cd D:\a\1\s\CombinedFiles
+cd C:\ab\_work\1\s\CombinedFiles
 git init 
 
 
