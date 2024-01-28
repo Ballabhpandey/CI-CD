@@ -29,6 +29,6 @@ git init
 git status
 git add CombinedFiles/CardPayMoneyInMetering_hash.txt
 git commit -m "vc"
-git push origin master
+git push origin test
 
 
