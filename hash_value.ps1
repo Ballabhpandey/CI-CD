@@ -23,12 +23,14 @@ foreach ($file in $jrxmlFiles) {
     Write-Output "File: $($file.Name), Hash: $($hash.Hash), Hash File: $($hashFileName)"
 }
 cd E:/WEL
-pwd
-git --version
-git init 
-git status
-git add CombinedFiles/CardPayMoneyInMetering_hash.txt
-git commit -m "vc"
-git push origin test
+$null = git remote add origin1 
+# Push changes to remote repository
+$null = git remote -v 
+
+# Push changes to remote repository
+$null = git fetch origin1 master
+
+
+
 
 
