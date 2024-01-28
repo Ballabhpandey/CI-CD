@@ -22,7 +22,7 @@ foreach ($file in $jrxmlFiles) {
     Set-Content -Path $hashFileName -Value $hash.Hash
     Write-Output "File: $($file.Name), Hash: $($hash.Hash), Hash File: $($hashFileName)"
 }
-cd E:/WEL
+cd $(Build.SourcesDirectory)
 $null = git remote add origin1 
 # Push changes to remote repository
 $null = git remote -v 
