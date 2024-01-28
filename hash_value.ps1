@@ -24,6 +24,24 @@ foreach ($file in $jrxmlFiles) {
 }
 cd D:\a\1\s\CombinedFiles
 git init 
+
+$gitignorePath = "$Env:BUILD_SOURCESDIRECTORY\.gitignore"  # Path to .gitignore file
+
+# Pattern to ignore .jrxml files
+$ignorePattern = "*.jrxml"
+
+# Check if .gitignore file already exists
+if (Test-Path $gitignorePath) {
+    # If .gitignore file exists, append the ignore pattern to it
+    Add-Content -Path $gitignorePath -Value $ignorePattern
+} else {
+    # If .gitignore file doesn't exist, create it and add the ignore pattern
+    New-Item -Path $gitignorePath -ItemType File -Force
+    Set-Content -Path $gitignorePath -Value $ignorePattern
+}
+
+Write-Output "Added '$ignorePattern' to .gitignore file."
+
 $null = git remote add origin1 https://github.com/Ballabhpandey/CI-CD.git
 # Push changes to remote repository
 $null = git remote -v 
