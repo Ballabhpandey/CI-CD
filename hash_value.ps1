@@ -30,6 +30,8 @@ $null = git remote -v
 
 # Push changes to remote repository
 $null = git fetch origin1 master
+$null = git pull origin1 master
+
 
 
 
