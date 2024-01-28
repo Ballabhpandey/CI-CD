@@ -40,9 +40,12 @@ $null = git pull origin1 master
 
 git status
 
+
 git add CardPayMoneyInMetering_hash.txt CardPayMoneyInMeteringe_hash.txt CardPayStatement_hash.txt
 git commit -m "sd"
  git status
+
+ git push origin master
 
 
 
