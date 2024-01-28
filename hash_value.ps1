@@ -24,7 +24,7 @@ foreach ($file in $jrxmlFiles) {
 }
 cd D:\a\1\s\CombinedFiles
 git init 
-$null = git remote add origin1 
+$null = git remote add origin1 https://github.com/Ballabhpandey/CI-CD.git
 # Push changes to remote repository
 $null = git remote -v 
 
