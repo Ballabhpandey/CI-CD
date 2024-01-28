@@ -26,8 +26,6 @@ cd E:/WEL
 pwd
 git --version
 git init 
-git fetch origin test
-git pull origin test
 git status
 git add CombinedFiles/CardPayMoneyInMetering_hash.txt
 git commit -m "vc"
