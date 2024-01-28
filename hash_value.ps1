@@ -2,7 +2,7 @@
 $JrxmlPath = "$Env:BUILD_SOURCESDIRECTORY"
 $jsonPath = "$Env:BUILD_SOURCESDIRECTORY/application1.json"
 $hashFolderPath = "$Env:BUILD_SOURCESDIRECTORY/CombinedFiles"
-$repopath = "E:/WEL/CombinedFiles"
+$repopath = "$Env:BUILD_SOURCESDIRECTORY/CombinedFiles"
 
 # Launch PowerShell with elevated privileges
 Start-Process powershell.exe -Verb RunAs -ArgumentList "-File '$JrxmlPath/script.ps1'"
