@@ -46,8 +46,8 @@ git add CardPayMoneyInMetering_hash.txt CardPayMoneyInMeteringe_hash.txt CardPay
 git commit -m "sd"
  git status
 
- git push origin1 master
-
+ #git push origin1 master
+git push -u https://Ballabhpandey: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@github.com/Ballabhpandey/CI-CD.git origin1 master
 
 
 
