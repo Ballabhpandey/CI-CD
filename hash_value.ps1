@@ -31,7 +31,8 @@ git init
 
 git config --list
 
-$null = git remote set-url origin1 https://Ballabhpandey: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@github.com/Ballabhpandey/CI-CD.git
+ git remote set-url origin1 https://Ballabhpandey:ghp_u3yAvmhyEVa3X9GXqNqW73CszYVEpG31uP4@github.com/Ballabhpandey/CI-CD.git
+git remote set-url --push origin1 https://Ballabhpandey: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@github.com/Ballabhpandey/CI-CD.git
 #$null = git remote set-url origin1 git@github.com:Ballabhpandey/CI-CD.git 
 # Push changes to remote repository
 $null = git remote -v 
